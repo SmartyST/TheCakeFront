@@ -3,6 +3,8 @@
 	<name>CakeWorld</name>
 	<comment></comment>
 	<projects>
+		<project>CakeWorldBackEnd</project>
+		<project>Servers</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

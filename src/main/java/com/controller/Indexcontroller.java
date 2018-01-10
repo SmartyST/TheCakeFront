@@ -28,11 +28,12 @@ public class Indexcontroller
 	CategoryDaoImpl categoryDaoImpl;
 	
 	
-	@RequestMapping("/welcome")
+	@RequestMapping("Home")
 	public String index()
 	{
 		return "welcome";
 	}
+	
 	
 	@RequestMapping(value="/goToRegister", method=RequestMethod.GET)
 	public ModelAndView goToRegister()
@@ -51,8 +52,14 @@ public class Indexcontroller
 		
 		user.setRole("ROLE_USER");
 		userDaoImpl.insertUser(user);
-		mav.setViewName("index");
+		mav.setViewName("welcome");
 		return mav;
+	}
+	
+	@ModelAttribute
+	public void getData(Model m)
+	{
+		m.addAttribute("catList", categoryDaoImpl.retrieve());
 	}
 	
 	@RequestMapping(value="/productCustList")
@@ -63,12 +70,6 @@ public class Indexcontroller
 		mv.setViewName("productCustList");
 		return mv;
 		
-	}
-	
-	@ModelAttribute
-	public void getData(Model m)
-	{
-		m.addAttribute("catList", categoryDaoImpl.retrieve());
 	}
 	
 }

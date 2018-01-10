@@ -1,30 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xmlns="http://java.sun.com/xml/ns/javaee" 
+		 xmlns:web="http://java.sun.com/xml/ns/javaee" 
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+		 					http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+		 id="WebApp_ID" version="3.0">
 				  
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+  		<param-name>contextConfiguration</param-name>
+  		<param-value>   /WEB-INF/dispatcher-servlet.xml, 
+  						/WEB-INF/spring-security.xml</param-value>
+  	</context-param>
+  	
+  	<listener> 
+	<web:listener-class>org.springframework.web.context.ContextLoaderListener</web:listener-class>
+	</listener>  
+	
+	<listener>
+	<web:listener-class>org.springframework.web.security.web.session.HttpSessionEventPublisher</web:listener-class>
+	</listener>
+
   <servlet>
-  <servlet-name>dispatcher</servlet-name>
-  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  <load-on-startup>1</load-on-startup>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
-  
   <servlet-mapping>
-  <servlet-name>dispatcher</servlet-name>
-  <url-pattern>/</url-pattern> 
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
-   
-   <context-param>
-   <param-name>contextConfigLocation</param-name>
-   <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
-   </context-param>
-   
-  <!-- <listener>
-  <listener-class> org.springframework.web.context.ContextLoaderListener </listener-class>
-  </listener>  -->
   
+  
+  <!-- Spring Security 
+	<filter>
+		<web:filter-name>springSecurityFilterChain</web:filter-name>
+		<web:filter-class>org.springframework.web.filter.DelegatingFilterProxy</web:filter-class>
+	</filter>
+
+	<filter-mapping>
+		<web:filter-name>springSecurityFilterChain</web:filter-name>
+		<web:url-pattern>/*</web:url-pattern>
+	</filter-mapping> -->
+   
+  <display-name>CakeWorld</display-name>
   
 </web-app>

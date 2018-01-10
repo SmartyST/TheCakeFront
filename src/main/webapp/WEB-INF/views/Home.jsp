@@ -43,23 +43,23 @@
   
     <div class="carousel-inner" role="listbox">  
       <div class="item active">  
-        <img src="\resources\Cake01.jpg" alt="Cake 1" >  
+      	<img src="<spring:url value="\image\Cake01.jpg"></spring:url>" alt="Cake 1">
       </div>  
   
       <div class="item">  
-        <img src="\resources\Cake02.jpg" alt="Cake 2" >  
+        <img src="<spring:url value="\image\Cake02.jpg"></spring:url>" alt="Cake 2">  
       </div>  
       
       <div class="item">  
-        <img src="\resources\Cake03.jpg" alt="Cake 3" > 
+        <img src="<spring:url value="\image\Cake03.jpg"></spring:url>" alt="Cake 3">
       </div>
       
       <div class="item">  
-        <img src="\resources\Cake04.jpg" alt="Cake 4" >  
+        <img src="<spring:url value="\image\Cake04.jpg"></spring:url>" alt="Cake 4">
       </div>  
       
       <div class="item">  
-        <img src="\resources\Cake05.jpg" alt="Cake 5" > 
+        <img src="<spring:url value="\image\Cake05.jpg"></spring:url>" alt="Cake 5">
       </div>  
         
     </div>  
